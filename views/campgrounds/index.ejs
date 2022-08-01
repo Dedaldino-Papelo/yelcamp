@@ -1,0 +1,29 @@
+<%- include('../partials/header') %>
+<div class="container">
+    <header class="jumbotron">
+        <div class="container">
+            <h2>Welcome to the YelpCamp</h2>
+            <p>Here you can see all the campgrounds you need to go</p> 
+            <a class="btn btn-primary" href="/campgrounds/new">Adicionar</a>    
+        </div>
+    </header>
+    
+    <div class="row text-center" style="display: flex; flex-wrap: wrap">
+        <% campgrounds.map(campground => { %>
+            <div class="col-md-3 col-sm-6">
+                <div class="thumbnail">
+                    <img src="<%= campground.Image %>">
+                    <div class="caption">
+                        <h4><%= campground.name %></h4>
+                    </div>
+                    <p>
+                        <a class="btn btn-primary" href="/campgrounds/<%= campground._id %>">Saber Mais</a>
+                    </p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>
+
+
+<%- include('../partials/footer') %>
